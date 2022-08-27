@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  personal-entries:
+    image: personal-entries
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8081:80
