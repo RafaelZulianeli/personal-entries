@@ -1,10 +1,16 @@
 version: 0.2
 
+env:
+  secrets-manager:
+    DOCKERHUB_USERNAME: DockerHubSecret:rafaelzulianeli
+    DOCKERHUB_PASSWORD: DockerHubSecret:dckr_pat_9x0yBAmx743v6Rp6tJM3-KWqTd4
+
 phases:
   pre_build:
     commands:
       - echo Logging in to Docker Hub...
       # Type the command to log in to your Docker Hub account here.
+      - docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD
   build:
     commands:
       - echo Build started on `date`
