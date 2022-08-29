@@ -9,7 +9,8 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t personal-entries .
+      # - docker build -t personal-entries .
+      - docker-compose up -d
       - docker tag personal-entries:latest rafaelzulianeli/personal-entries:latest
   post_build:
     commands:
