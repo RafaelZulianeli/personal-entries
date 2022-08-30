@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  cms: {
+    domain: 'https://cloud.squidex.io/',
+    client_id: 'personal-entries-squidex:front-end',
+    client_secret: 'vvaioiyulgnxlv7kbzyx5t5xa5eehinipxeuqqe01aex'
+  }
 };
 
 /*
