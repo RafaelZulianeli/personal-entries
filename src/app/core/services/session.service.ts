@@ -1,38 +1,26 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpClient,
-  HttpHeaders,
-  HttpParams,
-  HttpResponse,
-} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
-
-export interface SessionState {
-  token: string;
-}
-
-export interface SquidexToken {
-  access_token: string;
-  expires_in: number;
-  scope: string;
-  token_type: string;
-}
+import {
+  SessionState,
+  SquidexToken,
+} from 'src/app/shared/models/session.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SessionService {
-  private _token = '';
+  private _token!: string;
   private sessionStateSubject = new BehaviorSubject<SessionState>({
-    token: this._token,
+    isAuth: false,
   });
 
   public sessionState$ = this.sessionStateSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
-  generateToken() {
+  authCms() {
     const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
     });
@@ -45,19 +33,23 @@ export class SessionService {
     });
 
     const url = environment.cms.domain + 'identity-server/connect/token';
-    // .set('grant_type', 'client_credentials')
-    // .set('client_id', clientId)
-    // .set('client_secret', clientSecret)
-    // .set('scope', 'squidex-api');
 
-    this.http
+    return this.http
       .post<SquidexToken>(url, httpParams, {
         headers,
       })
       .pipe(map((res) => `${res.token_type} ${res.access_token}`))
       .subscribe((token) => {
-        this._token = token;
-        this.sessionStateSubject.next({ token: this._token });
+        this.setToken(token);
+        this.sessionStateSubject.next({ isAuth: true });
       });
+  }
+
+  getToken() {
+    return this._token;
+  }
+
+  private setToken(token: string) {
+    this._token = token;
   }
 }
