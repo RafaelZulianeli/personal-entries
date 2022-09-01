@@ -1,0 +1,14 @@
+.pe-toolbar {
+  &__spacer {
+    flex: 1 1 auto;
+  }
+
+  &__icon {
+    margin-right: 5px;
+
+    &--squidex,
+    &--docker {
+      max-height: 32px;
+    }
+  }
+}
