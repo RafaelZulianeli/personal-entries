@@ -1,0 +1,12 @@
+.pe-categories {
+  max-width: 1200px;
+  margin: auto;
+
+  &__content {
+    min-width: 850px;
+  }
+
+  &__table {
+    width: 100%;
+  }
+}
