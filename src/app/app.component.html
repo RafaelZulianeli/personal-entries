@@ -1,7 +1,7 @@
 <app-toolbar [drawer]="drawer"></app-toolbar>
 <mat-drawer-container class="app-container" [hasBackdrop]="false">
   <mat-drawer class="app-container__menu" #drawer mode="push">
-    <mat-nav-list>
+    <mat-nav-list class="app-container__menu-list">
       <a
         class="app-container__link"
         mat-list-item
@@ -17,6 +17,12 @@
         routerLinkActive="app-container__link--active"
         >Categorias
       </a>
+      <span class="app-container__spacer"></span>
+      <div class="app-container__auth-squidex squidex">
+        <h3 class="squidex__title">Login Squidex</h3>
+        <p class="squidex__login">Login: itauteste2022@gmail.com</p>
+        <p class="squidex__pass">Senha: itau@2022</p>
+      </div>
     </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content>
