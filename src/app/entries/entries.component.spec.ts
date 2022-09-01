@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EntriesComponent } from './entries.component';
@@ -8,9 +9,9 @@ describe('EntriesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EntriesComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule],
+      declarations: [EntriesComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(EntriesComponent);
     component = fixture.componentInstance;

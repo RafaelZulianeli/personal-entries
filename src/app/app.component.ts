@@ -7,8 +7,6 @@ import { SessionService } from './core/services/session.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'personal-entries';
-
   constructor(private sessionService: SessionService) {}
 
   ngOnInit(): void {
