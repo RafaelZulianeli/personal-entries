@@ -5,6 +5,7 @@ export class EntriesQuery {
     return {
       query: `{
         queryEntriesContents {
+          id
           flatData {
             description
             category {

@@ -21,7 +21,12 @@ export class ContentService {
         const key = Object.keys(response?.data).shift() as string;
         if (key) {
           return {
-            data: response.data[key].map((item: any) => item.flatData),
+            data: response.data[key].map((item: any) => {
+              return {
+                id: item.id,
+                ...item.flatData,
+              };
+            }),
           };
         }
         return { data: [] };
