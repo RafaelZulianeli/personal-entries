@@ -1,1 +1,25 @@
-<router-outlet></router-outlet>
+<app-toolbar [drawer]="drawer"></app-toolbar>
+<mat-drawer-container class="app-container" [hasBackdrop]="false">
+  <mat-drawer class="app-container__menu" #drawer mode="push">
+    <mat-nav-list>
+      <a
+        class="app-container__link"
+        mat-list-item
+        routerLink="/entries"
+        routerLinkActive="app-container__link--active"
+        >Lançamentos
+      </a>
+      <mat-divider></mat-divider>
+      <a
+        class="app-container__link"
+        mat-list-item
+        routerLink="/categories"
+        routerLinkActive="app-container__link--active"
+        >Categorias
+      </a>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
