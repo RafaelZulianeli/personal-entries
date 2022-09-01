@@ -32,7 +32,7 @@ export class SessionService {
       scope: 'squidex-api',
     });
 
-    const url = environment.cms.domain + 'identity-server/connect/token';
+    const url = environment.cms.domain + '/identity-server/connect/token';
 
     return this.http
       .post<SquidexToken>(url, httpParams, {
