@@ -1,0 +1,47 @@
+.app-container {
+  min-height: calc(100vh - 64px);
+
+  &__menu {
+    min-width: 200px;
+  }
+
+  &__menu-list {
+    display: flex;
+    flex-direction: column;
+    height: -webkit-fill-available;
+  }
+
+  &__spacer {
+    flex: 1 1 auto;
+  }
+
+  &__link {
+    color: #000000a6;
+
+    &:hover {
+      color: #000000de;
+    }
+
+    &--active {
+      color: #3f51b5;
+      background-color: rgba(63, 81, 181, 0.3);
+    }
+  }
+
+  &__auth-squidex {
+    padding: 10px;
+  }
+
+  .squidex {
+    &__title {
+      font-weight: 600;
+      color: #3f51b5;
+      margin: 0;
+    }
+
+    &__pass,
+    &__login {
+      margin: 0;
+    }
+  }
+}
