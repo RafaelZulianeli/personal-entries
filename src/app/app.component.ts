@@ -12,6 +12,6 @@ export class AppComponent implements OnInit {
   constructor(private sessionService: SessionService) {}
 
   ngOnInit(): void {
-    this.sessionService.generateToken();
+    this.sessionService.authCms();
   }
 }
